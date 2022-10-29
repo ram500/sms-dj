@@ -1,0 +1,113 @@
+{% extends "baseindex.html" %}
+{% block content %}
+
+
+<style>
+    .tittl{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-weight: 800;
+}
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.container{
+  margin: 40px;
+  padding: 10px;
+}
+.btn-warning {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #ffc107;
+  opacity: 0.8;
+}
+.btn-warning:hover {
+  opacity:1;
+  transform: scale(1.1);
+}
+input[type=text]{
+  width: 140px;
+  padding: 6px 8px;
+}
+input[type=submit]{
+  border: none;
+    color: white;
+    padding: 6px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #079fff;
+    opacity: 0.8;
+    vertical-align: middle;
+}
+input[type=submit]:hover{
+    opacity: 1;
+}
+form{
+  margin-left: 50px;
+}
+</style>
+<h2 class="tittl"> Teacher Details Panel</h2>
+<div>
+  <form method="post" action="">
+    {% csrf_token %}
+    <input type="text" name="reg_id" placeholder="Registration Id" >
+    <input type="submit">
+  </form>
+</div>
+<div class="container" style="margin-top: 50px;">
+<div class="col-12" style="background-color:rgb(192, 226, 255); border:2px solid; border-bottom:none;">
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Teacher_id</th>
+            <th scope="col">First name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">City</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for th in teach %}
+          <tr>
+            <th scope="row">{{ th.registration_id }}</th>
+            <td>{{ th.first_name }}</td>
+            <td>{{ th.username }}</td>
+            <td>{{ th.email }}</td>
+            <td>{{ th.city }}</td>
+            <td>
+              <a class="btn btn-warning btn-sm" href="{% url 'view_teacher_details' th.registration_id %}" >View</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    
+</div>
+</div>
+
+
+{% endblock content %}

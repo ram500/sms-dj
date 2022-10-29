@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System</title>
+
+
+
+    <link rel="stylesheet" href="/static/css/indexstyle.css">
+
+    <!-- bootstrap css can not be included in this base template because it disturbs our external css -->
+    
+
+</head>
+<body>
+    <!--  header start -->
+
+    <header>
+        <div class="left_area">
+          <h3>School Management System</h3>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end igg">
+            <img class="me-md-2 ig" src="/static/images/ram.jpg" alt="">
+          
+            <a href="accounts/logout" class="logout_btn">Logout</a>
+          </div>
+        </div>
+         
+    </header>
+    
+    <!--  header end -->
+
+    
+    <!-- sidemenu bar start -->
+
+    <nav class="main-menu">
+      <ul>
+      <li>
+      <a href="/">
+          <i class="ic fa-solid fa-house-user"></i>
+          <span class="nav-text">Dashboard</span>
+      </a>
+      </li>
+      <li>
+      <a href="/admin_teachers">
+          <i class="ic fa-solid fa-chalkboard-user"></i>
+          <span class="nav-text">Teachers</span>
+      </a>
+      </li> 
+      <li>
+        <a href="/admin_students">
+            <i class="ic fa-solid fa-user-graduate"></i>
+            <span class="nav-text">Students</span>
+        </a>
+        </li>    
+        <li>
+          <a href="#">
+              <i class="ic fa-solid fa-address-card"></i>
+              <span class="nav-text">Attendance</span>
+          </a>
+          </li>   
+          <li>
+            <a href="/fee_details">
+                <i class="ic fa-solid fa-indian-rupee-sign"></i>
+                <span class="nav-text">Fee Details</span>
+            </a>
+            </li> 
+      </ul>    
+      
+  </nav>
+
+
+    <!-- sidemenu bar end-->
+
+    <!-- content start -->
+
+      <section class="home-section">
+        
+      
+        <!-- cards-->
+       {% block content %}
+
+       {% endblock content %}
+
+
+
+
+
+      </section>
+ 
+      <!-- content end-->
+ </body> 
+ <script src="https://kit.fontawesome.com/4961f15a41.js" crossorigin="anonymous"></script>
+
+    <!-- alertify links -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+     <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+ {% for flashmsg in messages %}
+    <script>
+      alertify.set('notifier','position', 'top-right');
+      alertify.success('{{ flashmsg }}'); 
+    </script>
+    {% endfor %}
+
+</html>

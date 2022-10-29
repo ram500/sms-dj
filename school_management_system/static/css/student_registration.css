@@ -1,0 +1,30 @@
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.box2{
+    width: 700px;
+    margin: auto;
+    background-color:rgb(192, 226, 255)
+}
+.container h2{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.bold{
+    font-weight: bold;
+}
+.margin-top{
+    margin-top: 30px;
+}
+.right{
+    float: right;
+}
+
+.pad{
+    padding: 50px;
+}

@@ -1,0 +1,103 @@
+{% extends "baseindex.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/admin_dashboard.css">
+
+<h2 class="tittl">Dashboard</h2>
+
+<!-- cards -->
+
+<div class="box">
+    <div class="container">
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/graduated.png">
+            </div>
+            <div class="content">
+                <h2>
+                    {{ studentcount }}
+                </h2>
+                <h4 style="margin-top: 10px;">Total Students</h4>
+                <a href="/student_details">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/contract.png">
+            </div>
+            <div class="content">
+                <h2>
+                    50
+                </h2>
+                <h4 style="margin-top: 10px;">Pending Admissions</h4>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/rupee-symbol.png">
+            </div>
+            <div class="content">
+                <h2>{{ total_fees }} {{ denomination }}</h2>
+                <h4 style="margin-top: 10px;">Total Fees</h4>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/wallet.png">
+            </div>
+            <div class="content">
+                <h2>{{ pending_fees }} {{ denomination_paid }} </h2>
+                <h4 style="margin-top: 10px;">Pending Fees</h4>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <!-- teachers-->
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/female.png">
+            </div>
+            <div class="content">
+                <h2>{{ teachercount }}</h2>
+                <h4 style="margin-top: 10px;">Total Teachers</h4>
+                <a href="/teacher_details">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle">
+               <img src="/static/images/icons/pay.png">
+            </div>
+            <div class="content">
+                <h2>9.24 lac</h2>
+                <h4 style="margin-top: 10px;">Salaries Paid</h4>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/pending.png">
+            </div>
+            <div class="content">
+                <h2>3.36 lac</h2>
+                <h4 style="margin-top: 10px;">Salaries Pending</h4>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle">
+                <h2>
+                    08
+                </h2>
+            </div>
+            <div class="content">
+                <h2>value</h2>
+                <h4 style="margin-top: 10px;">Heading</h4>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock content %}

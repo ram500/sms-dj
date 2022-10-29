@@ -1,0 +1,50 @@
+{% extends "baseindex.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/admin_teacher.css">
+
+<h2 class="tittl">Teachers Panel</h2>
+
+<!-- cards -->
+<div class="box">
+    <div class="container">
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/female.png">
+            </div>
+            <div class="content">
+                <a href="/teacher_details">View Teachers</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/add-user.png">
+            </div>
+            <div class="content">
+                <a href="accounts/teacher_registration">Register Teacher</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/update.png">
+            </div>
+            <div class="content">
+                <a href="/update_teacher_details">Update Teacher</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/attendance.png">
+            </div>
+            <div class="content">
+                <a href="#">Mark Attendance</a>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+{% endblock content %}

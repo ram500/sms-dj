@@ -1,0 +1,116 @@
+{% extends 'baseindex.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <style>
+        .size4{
+            font-size: large;
+        }
+        .bd{
+            border-top: 2px;
+            border-color: black;
+        }
+        .rig{
+            float: right;
+            margin-right: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="text-align: center; font-weight:800; padding:50px 0px">
+        <h1> Student Details</h1>
+        <button class="btn btn-primary rig" onclick="printDiv()">Print</button>
+        
+    </div>
+    
+    <div class="container" id="main_div" style="max-width: 1000px;">
+        <div class="row mb-2">
+            <div class="col">
+    
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="bdd col-auto d-none d-lg-block" style="padding-right: 20px; margin-left: 40px;">
+                      <img class="bd-placeholder-img" style="width: 250px; height: 250px; padding: 10px;" src="/static/images/ram.jpg">   
+                    </div>
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <p class="size4"><strong>Full Name</strong> : {{ details.full_name|upper }}</p>
+                        <div class="row">
+                        <p class="size4 col-6"><strong>Registration Id</strong> : {{ details.registration_id|upper }}</p>
+                        <p class="size4 col-6"><strong>Registration Date</strong> : {{ details.date_of_Registration|upper }}</p>
+                        </div>
+                        <div class="row">
+                        <p class="size4 col-6"><strong>Date Of Birth</strong> : {{ details.date_of_birth|upper }}</p>
+                        <p class="size4 col-6"><strong>Gender</strong> : {{ details.gender|upper }}</p>
+                        </div>
+                        <div class="row">
+                        <p class="size4 col-6"><strong>Mobile Number</strong> : {{ details.mobile_number|upper }}</p>
+                        <p class="size4 col-6"><strong>Class</strong> : {{ details.class_no|upper }}</p>
+                        </div>
+                        <p class="size4"><strong>Email</strong> : {{ details.email|upper }}</p>
+                     
+                    </div>
+                    <hr>
+                    <div class="row g-0 flex-md-row bd ">
+                    
+                        <div class="col p-4 d-flex flex-column position-static" ">
+                            
+                            <p class="size4"><strong>Father Name</strong> : {{ details.father_name|upper }}</p>
+                            <p class="size4"><strong>Mother Name</strong> : {{ details.mother_name|upper }}</p>
+                            <p class="size4"><strong>Address</strong> : {{ details.address|upper }}</p>
+                            <div class="row">
+                            <p class="size4 col-6"><strong>City</strong> : {{ details.city|upper }}</p>
+                            <p class="size4 col-6"><strong>Pincode</strong> : {{ details.pincode|upper }}</p>
+                            </div>
+                            <div class="row">
+                            <p class="size4 col-6"><strong>State</strong> : {{ details.state|upper }}</p>
+                            <p class="size4 col-6"><strong>Country</strong> : {{ details.country|upper }}</p>
+                            </div>
+                            <hr>
+                            <div class="row">
+                            <p class="size4 col-6"><strong>Username</strong> : {{ details.username|upper }}</p>
+                            <p class="size4 col-6"><strong>Password</strong> : {{ details.password|upper }}</p>
+                            </div>
+                            <div class="row">
+                            <p class="size4 col-6"><strong>Total Fees</strong> : {{ details.fees|upper }}</p>
+                            <p class="size4 col-6"><strong>Fees Pending</strong> : {{ pending_fees|upper }}</p>
+                            </div>
+                         
+                        </div>
+                        
+                    </div>
+                </div>
+    
+                
+    
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+     function printDiv() { 
+        var divContents = document.getElementById("main_div").innerHTML; 
+        var a = window.open('', '', 'height=500, width=500'); 
+        a.document.write('<html><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">'); 
+        a.document.write('<body >'); 
+        a.document.write(divContents); 
+        a.document.write('</body></html>'); 
+        a.document.close(); 
+        a.print(); 
+    }
+</script>
+</html>
+
+
+
+{% endblock content %}

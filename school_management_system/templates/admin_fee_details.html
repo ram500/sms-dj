@@ -1,0 +1,35 @@
+{% extends "baseindex.html" %}
+{% block content %}
+
+
+<link rel="stylesheet" href="/static/css/admin_students.css">
+
+<h2 class="tittl"> Fee Details Panel</h2>
+
+<!-- cards -->
+<div class="box">
+    <div class="container">
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/graduated.png">
+            </div>
+            <div class="content">
+                <a href="/student_fee_details">View Students</a>
+            </div>
+        </div> 
+        <div class="card">
+            <div class="circle">
+                <img src="/static/images/icons/operation.png">
+            </div>
+            <div class="content">
+                <a href="/pay_fees">Pay Fees</a>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+{% endblock content %}

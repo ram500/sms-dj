@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<style>
+    .container{
+        border: 2px black solid;
+        margin: auto;
+        width: 800px;
+    }
+    .container h2{
+        text-align: center;
+    }
+    .container h4 {
+    background-color: #cae3f9;
+    padding: 20px;
+    margin: 0;
+    font-size: larger;
+}
+    .student_details{
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 30px;
+    }
+    .button-class {
+    display: flex;
+    justify-content: end;
+    width: 800px;
+    margin: auto;
+    padding-top: 25px;
+    }
+    button.btn2 {
+    padding: 15px 25px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    opacity: 0.8;
+    margin-left: 10px;
+}
+button.btn2:hover{
+    opacity: 1;
+    transform: scale(1.2);
+}
+button.btn1 {
+    padding: 15px 25px;
+    background-color: #fd0d0d;
+    border: none;
+    border-radius: 10px;
+    opacity: 0.8;
+    margin-left: 10px;
+}
+button.btn1:hover{
+    opacity: 1;
+    transform: scale(1.2);
+}
+</style>
+	
+
+</head>
+<body>
+<div class="container">
+	<h2>Payment Receipt</h2>
+	
+    <h4>Student Details</h4>
+	<div class="student_details">
+		<div>
+			<p>Registration Id: {{ details.registration_id }} </p>
+			<p>Student Name: {{ details.full_name }}</p>
+			<p>Father Name: {{ details.father_name }}</p>
+            <p>Date of Birth: {{ details.date_of_birth }}</p>
+            <p>Class: {{ details.class_no }}</p>
+		</div>
+		
+		<div>
+			<p>Payment Date: {{ today }} </p>
+			<p>Payment time: {{ time }}</p>
+		</div>
+		
+	</div>
+	
+	<h4>Payment Summary</h4>
+	<div class="student_details">
+		<div>
+			<p>Total Fees: {{ details.fees }} </p>
+            </div>
+            <div>
+            <p>pending_fees: {{ pending_fees_past }} </p>
+			<p>Fees Paid: {{ currently_paid }} </p>
+			<p>balance Fee: {{ pending_fees_now }} </p>
+        </div>
+            
+		
+	</div>
+</div>
+<div class="button-class">
+    <button class="btn1" onclick="document.location.href='/admin_students';">Close</button>
+    <button class="btn2" onclick="window.print()">Print</button>
+    </div>
+</body>
+</html>
+

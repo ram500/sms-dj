@@ -1,0 +1,118 @@
+{% extends "baseindex.html" %}
+{% load mathfilters %}
+{% block content %}
+
+<style>
+  .tittl{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-weight: 800;
+}
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.container{
+  margin: 40px;
+  padding: 10px;
+}
+.btn-warning {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+  background-color: #ffc107;
+  opacity: 0.8;
+}
+.btn-warning:hover {
+  opacity:1;
+  transform: scale(1.1);
+}
+input[type=text]{
+  width: 140px;
+  padding: 6px 8px;
+}
+input[type=submit]{
+  border: none;
+    color: white;
+    padding: 6px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #079fff;
+    opacity: 0.8;
+    vertical-align: middle;
+}
+input[type=submit]:hover{
+    opacity: 1;
+}
+form{
+  margin-left: 50px;
+}
+</style>
+
+<h2 class="tittl"> Student Details Panel</h2>
+<div>
+  <form method="post" action="">
+    {% csrf_token %}
+    <input type="text" name="reg_id" placeholder="Registration Id" >
+    <input type="submit">
+  </form>
+</div>
+<div class="container">
+<div class="col-12" style="background-color:rgb(192, 226, 255); border:2px solid; border-bottom:none;">
+    {% if stu %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">stud_id</th>
+            <th scope="col">First name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Class</th>
+            <th scope="col">City</th>
+            <th scope="col">Pending Fee</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for st in stu %}
+          <tr>
+            <th scope="row">{{ st.registration_id }}</th>
+            <td>{{ st.first_name }}</td>
+            <td>{{ st.username }}</td>
+            <td>{{ st.email }}</td>
+            <td>{{ st.class_no }}</td>
+            <td>{{ st.city }}</td>
+            <td>{{ st.fees|sub:st.fees_paid }}</td>
+            <td>
+              <a class="btn btn-warning btn-sm" href="{% url 'view_student_details' st.registration_id %}" >View</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+</div>
+</div>
+
+
+{% endblock content %}
