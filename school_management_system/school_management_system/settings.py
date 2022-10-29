@@ -27,7 +27,7 @@ SECRET_KEY = '_f^n58v%rm!cawse07&l&hin*1gpy9m35fs*63dhc7wji=g_0i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','sms--django.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','sms10.herokuapp.com']
 
 
 # Application definition
