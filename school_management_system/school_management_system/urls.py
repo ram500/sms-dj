@@ -19,8 +19,6 @@ from django.urls import path, include
 from school_management_system import views
 from django.conf import settings
 
-from django.views.static import serve
-from django.conf.urls.static import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,9 +38,5 @@ urlpatterns = [
     path('fee_details', views.fee_details),
     path('student_fee_details', views.student_fee_details),
     path("accounts/", include('accounts.urls')),
-    
-
-
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
+     
 ]
